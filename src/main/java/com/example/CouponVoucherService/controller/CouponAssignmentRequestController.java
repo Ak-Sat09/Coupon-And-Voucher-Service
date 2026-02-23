@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/coupon-requests")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class CouponAssignmentRequestController {
 
     private final CouponAssignmentRequestService requestService;
