@@ -40,6 +40,8 @@ public ResponseEntity<ApiResponse<String>> createRequest(
         List<CouponAssignmentResponseDTO> requests = requestService.getRequestsForSeller(sellerId);
         return ResponseEntity.ok(ApiResponse.success(requests));
     }
+
+    
 @PostMapping("/seller/accept/{requestId}")
 public ResponseEntity<ApiResponse<String>> acceptRequest(
         @PathVariable Long requestId,
