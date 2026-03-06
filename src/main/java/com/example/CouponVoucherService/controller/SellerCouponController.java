@@ -66,6 +66,19 @@ public ApiResponse<CouponResponse> getCouponById(
         return ApiResponse.success(response);
     }
 
+    @GetMapping("/my")
+public ApiResponse<List<CouponResponse>> getAllCouponsBySeller(
+        @RequestHeader("Authorization") String authorizationHeader,
+        @RequestParam(defaultValue = "false") boolean showCode
+        ) {
+
+    Long sellerId = extractUserIdFromHeader(authorizationHeader);
+
+    return ApiResponse.success(
+            couponService.getAllCouponsBySellerId(sellerId, showCode)
+    );
+}
+
     // ===== UPDATE =====
     @PutMapping("/{id}")
     public ApiResponse<CouponResponse> updateCoupon(@PathVariable("id") Long couponId,

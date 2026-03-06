@@ -65,7 +65,13 @@ public CouponResponse getCouponById(Long couponId, Long buyerId) {
         List<Coupon> coupons = couponRepository.findAll();
         return couponMapper.toDtoList(coupons, showCode);
     }
+@Transactional(readOnly = true)
+public List<CouponResponse> getAllCouponsBySellerId(Long sellerId, boolean showCode) {
 
+    List<Coupon> coupons = couponRepository.findBySellerId(sellerId);
+
+    return couponMapper.toDtoList(coupons, showCode);
+}
     /* ===== UPDATE ===== */
     @Transactional
     public CouponResponse updateCoupon(Long couponId, CreateCouponRequest request, Long sellerId) {

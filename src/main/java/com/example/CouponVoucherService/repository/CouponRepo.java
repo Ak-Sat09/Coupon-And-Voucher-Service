@@ -11,6 +11,8 @@ public interface CouponRepo extends JpaRepository<Coupon , Long>{
     // Get all coupons created by a seller
     List<Coupon> findBySellerId(Long sellerId);
 
+    
+
     // Optional: get all active (not expired) coupons
     List<Coupon> findBySellerIdAndExpiryDateAfter(Long sellerId, LocalDateTime now);
 }
