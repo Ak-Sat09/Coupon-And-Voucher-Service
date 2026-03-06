@@ -4,6 +4,12 @@ spring:
     username: postgres.egwwpaoacecgkdaycggp
     password: AnmolMehla@6228
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 1800000
 
   jpa:
     hibernate:
@@ -12,6 +18,3 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-
-server:
-  port: ${PORT:8080}  # Use Render's assigned port
